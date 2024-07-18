@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.github.linwumingshi</groupId>
+  <artifactId>smart-doc-extend</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>com.ly.smart-doc</groupId>
+      <artifactId>smart-doc</artifactId>
+      <version>3.0.5</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.ly.smart-doc</groupId>
+        <artifactId>smart-doc-maven-plugin</artifactId>
+        <version>3.0.5</version>
+        <configuration>
+          <!--指定生成文档的使用的配置文件-->
+          <configFile>./src/main/resources/smart-doc.json</configFile>
+          <!--指定项目名称-->
+          <projectName>测试</projectName>
+        </configuration>
+      </plugin>
+
+      <!-- spring java format -->
+      <plugin>
+        <groupId>io.spring.javaformat</groupId>
+        <artifactId>spring-javaformat-maven-plugin</artifactId>
+        <version>0.0.42</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <inherited>true</inherited>
+            <goals>
+              <goal>validate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
